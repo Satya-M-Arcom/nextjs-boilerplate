@@ -1,8 +1,3 @@
-// Webhook endpoint for make.com to push new Telegram posts here.
-// POST https://quantophobiadeleted.vercel.app/api/webhook
-// Header: x-webhook-secret: <your secret>
-// Body: { "text": "...", "date": "ISO date", "link": "...", "image": "..." }
-
 import { kv } from '../../lib/storage';
 
 export default async function handler(req, res) {
@@ -10,7 +5,6 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' });
   }
 
-  // Simple shared-secret auth — set WEBHOOK_SECRET in Vercel env vars
   const secret = process.env.WEBHOOK_SECRET;
   const provided = req.headers['x-webhook-secret'];
   if (secret && provided !== secret) {

@@ -1,6 +1,3 @@
-// Public API — returns the latest channel posts.
-// Tries make.com-pushed posts first, then falls back to scraping the public Telegram preview.
-
 import { kv } from '../../lib/storage';
 
 const CHANNEL = 'quantophobiadeleted';
@@ -8,7 +5,6 @@ const TELEGRAM_PREVIEW_URL = `https://t.me/s/${CHANNEL}`;
 
 export default async function handler(req, res) {
   try {
-    // 1. First check if make.com has pushed any posts (Method B)
     const pushed = await kv.getPosts();
 
     if (pushed && pushed.length > 0) {
@@ -16,7 +12,6 @@ export default async function handler(req, res) {
       return res.status(200).json({ source: 'make.com', channel: CHANNEL, posts: pushed });
     }
 
-    // 2. Fallback: scrape the public Telegram preview page (Method A)
     const response = await fetch(TELEGRAM_PREVIEW_URL, {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; QuantophobiaBot/1.0)' }
     });
