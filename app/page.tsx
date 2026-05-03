@@ -18,9 +18,13 @@ async function getPosts() {
       next: { revalidate: 120 } 
     });
     
-    if (!res.ok) return;
+    if (!res.ok) {
+      return;
+    }
     const data = await res.json();
-    if (!Array.isArray(data)) return;
+    if (!Array.isArray(data)) {
+      return;
+    }
     return data;
   } catch (error) {
     return;
@@ -29,6 +33,7 @@ async function getPosts() {
 
 export default async function Home() {
   const issues = await getPosts();
+  const hasIssues = issues && issues.length > 0;
 
   return (
     <article className="prose prose-lg prose-blue mx-auto">
@@ -37,9 +42,7 @@ export default async function Home() {
         <p className="text-gray-500 mt-2">Live AI sync from our Telegram Community</p>
       </header>
 
-      {!issues |
-
-| issues.length === 0? (
+      {!hasIssues? (
         <div className="bg-white p-6 rounded-lg shadow-sm border">
           <p>Waiting for the first Telegram post...</p>
         </div>
