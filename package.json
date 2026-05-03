@@ -1,5 +1,5 @@
 {
-  "name": "quantophobia-live",
+  "name": "quantophobiadeleted",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,8 +19,8 @@
     "rehype-katex": "^7.0.0",
     "katex": "^0.16.10",
     "next-mdx-remote": "^4.4.1",
-    "tailwindcss": "latest",
-    "@tailwindcss/postcss": "latest",
-    "postcss": "latest"
+    "tailwindcss": "^3.4.3",
+    "postcss": "^8.4.31",
+    "autoprefixer": "^10.4.19"
   }
 }

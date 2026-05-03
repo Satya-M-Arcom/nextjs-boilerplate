@@ -10,14 +10,12 @@ const mdxOptions = {
 }
 
 async function getPosts() {
-  // CRITICAL: Replace this with your exact GitHub username 
-  // (Based on your Vercel link, it is likely 'satyamarcom-9822' or 'satyamarcom')
   const username = 'Satya-M-Arcom'; 
-  const repo = 'quantophobia-live';
+  const repo = 'quantophobiadeleted';
 
   try {
     const res = await fetch(`https://api.github.com/repos/${username}/${repo}/issues?state=open`, {
-      next: { revalidate: 120 } // Auto-refreshes every 2 minutes to stay safely under free API limits
+      next: { revalidate: 120 } 
     });
     
     if (!res.ok) return;
@@ -39,7 +37,9 @@ export default async function Home() {
         <p className="text-gray-500 mt-2">Live AI sync from our Telegram Community</p>
       </header>
 
-      {issues.length === 0? (
+      {(!issues |
+
+| issues.length === 0)? (
         <div className="bg-white p-6 rounded-lg shadow-sm border">
           <p>Waiting for the first Telegram post...</p>
         </div>
