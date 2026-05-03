@@ -1,16 +1,12 @@
-import './globals.css'
-import 'katex/dist/katex.min.css' 
+import './globals.css';
+import 'katex/dist/katex.min.css'; 
 
 export const metadata = {
   title: 'Quantophobia Remediation',
   description: 'Gradually improve your quantitative aptitude.',
-}
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-900 font-sans antialiased">
@@ -19,5 +15,5 @@ export default function RootLayout({
         </main>
       </body>
     </html>
-  )
+  );
 }

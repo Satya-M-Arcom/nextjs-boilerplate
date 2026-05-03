@@ -1,13 +1,13 @@
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 const mdxOptions = {
   mdxOptions: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
   }
-}
+};
 
 async function getPosts() {
   const username = 'Satya-M-Arcom'; 
@@ -61,5 +61,5 @@ export default async function Home() {
         </a>
       </div>
     </article>
-  )
+  );
 }
