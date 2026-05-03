@@ -37,9 +37,9 @@ export default async function Home() {
         <p className="text-gray-500 mt-2">Live AI sync from our Telegram Community</p>
       </header>
 
-      {(!issues |
+      {!issues |
 
-| issues.length === 0)? (
+| issues.length === 0? (
         <div className="bg-white p-6 rounded-lg shadow-sm border">
           <p>Waiting for the first Telegram post...</p>
         </div>
